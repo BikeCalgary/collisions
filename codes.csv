@@ -1,0 +1,111 @@
+Column,Code,Text
+ObjectType,2,Pedestrian
+Position,12,Pedestrian
+SafetyEquip,8,None
+SafetyEquip,99,Unknown
+SafetyEquip,7,Helmet
+SafetyEquip,98,Other
+ObjectID,7,Pedestrian
+DriverAction,1,Driving Properly
+DriverAction,2,Stop Sign Violation
+DriverAction,3,Yield Sign Violation
+DriverAction,4,Fail to Yield ROW Uncontrolled
+DriverAction,5,Fail to Yield ROW Pedestrian
+DriverAction,6,Followed Too Closely
+DriverAction,7,Parked Vehicle
+DriverAction,8,Backed Unsafely
+DriverAction,9,Left Turn Accross Path
+DriverAction,10,Improper Lane Change
+DriverAction,11,Disobey Traffic Signal
+DriverAction,12,Ran Off Road
+DriverAction,13,Improper Turn
+DriverAction,14,Left Of Centre
+DriverAction,15,Improper Passing
+DriverAction,98,Other
+DriverAction,99,Unknwon
+LightConditionsA,1,Daylight
+LightConditionsA,2,Sunglare
+LightConditionsA,3,Darkness
+LightConditionsA,99,Unknown
+LightConditionsB,1,No Artificial Light
+LightConditionsB,2,Artificial Light
+LightConditionsB,99,Unknown
+TrafficControlDev,1,None Present
+TrafficControlDev,2,Traffic Signal/Lights
+TrafficControlDev,3,Stop Sign
+TrafficControlDev,4,Yield Sign
+TrafficControlDev,5,Merge Sign
+TrafficControlDev,6,Pedestrian Cross-Walk
+TrafficControlDev,7,School Bus
+TrafficControlDev,8,Lane Control Signal
+TrafficControlDev,9,RR Crossing
+TrafficControlDev,98,Other
+TrafficControlDev,99,Unknown
+TrafficControlCond,1,Functioning
+TrafficControlCond,2,Not Functioning
+TrafficControlCond,3,Obscured
+TrafficControlCond,4,Missing
+TrafficControlCond,98,Other
+TrafficControlCond,99,Unknown
+PedestrianAction,1,Crossing With ROW
+PedestrianAction,2,Crossing Without ROW
+PedestrianAction,3,Walking/Working on Roadway
+PedestrianAction,4,Getting On/Off Vehicle
+PedestrianAction,98,Other
+ContribRoadCond,1,No Unusual Condition
+ContribRoadCond,2,Under Construction
+ContribRoadCond,3,Hole/Ruts/Bumps
+ContribRoadCond,4,Slippery When Wet
+ContribRoadCond,5,Oily Pavement
+ContribRoadCond,6,Soft/Sharp Shoulder
+ContribRoadCond,98,Other
+ContribRoadCond,99,Unknown
+ContribVehCond,1,No Apparent Defect
+ContribVehCond,2,Defective Brakes
+ContribVehCond,3,Tires Failed
+ContribVehCond,4,Improper Load/Shift
+ContribVehCond,5,Lighting Defect
+ContribVehCond,98,Other
+ContribVehCond,99,Unknown
+UnsafeSpeed,1,Yes
+UnsafeSpeed,2,No
+UnsafeSpeed,99,Unknown
+DriverPedCondition,1,Apparently Normal
+DriverPedCondition,2,Had Been Drinking
+DriverPedCondition,3,Impaired By Alcohol
+DriverPedCondition,4,Impaired By Drugs
+DriverPedCondition,5,Fatigued/Asleep
+DriverPedCondition,6,Medical Defect
+DriverPedCondition,98,Other
+DriverPedCondition,99,Unknown
+PrimaryEvent,1,Struck Object
+PrimaryEvent,2,Off Road Left
+PrimaryEvent,3,Right Angle
+PrimaryEvent,4,Passign Left Turn
+PrimaryEvent,5,Left Turn Across Path
+PrimaryEvent,6,Sideswipe Opposite Direction
+PrimaryEvent,7,Other
+PrimaryEvent,8,Rear End
+PrimaryEvent,9,Off Road Right
+PrimaryEvent,10,Head On
+PrimaryEvent,11,Passing – Right Turn
+PrimaryEvent,12,Sideswipe Same Direction
+PrimaryEvent,13,Backing
+Severity,1,Fatal
+Severity,2,Injury
+Severity,3,Property Damage
+SurfaceConditions,1,Dry
+SurfaceConditions,2,Wet
+SurfaceConditions,3,Slush/Snow/Ice
+SurfaceConditions,4,Loose Surface Material
+SurfaceConditions,5,Muddy
+SurfaceConditions,98,Other
+SurfaceConditions,99,Unknown
+EnvironConditions,1,Clear
+EnvironConditions,2,Raining
+EnvironConditions,3,Hail/Sleet
+EnvironConditions,4,Snow
+EnvironConditions,5,Fog/Smog/Smoke/Dust
+EnvironConditions,6,High Wind
+EnvironConditions,98,Other
+EnvironConditions,99,Unknown
