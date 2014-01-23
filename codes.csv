@@ -1,5 +1,6 @@
 Column,Code,Text
 ObjectType,2,Pedestrian
+ObjectType,4,Cyclist
 Position,12,Pedestrian
 SafetyEquip,8,None
 SafetyEquip,99,Unknown
