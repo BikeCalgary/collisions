@@ -68,7 +68,7 @@ except IOError:
 with open('geocoded.csv', 'wa') as outputfile:
     outputcsv = csv.writer(outputfile)
     with open("to-geocode", "r") as f:
-        for line in f.readlines()[:500]:
+        for line in f.readlines():
             line = line.strip()
             if line in pre_existing:
                 print 'Already have "%s"' % line

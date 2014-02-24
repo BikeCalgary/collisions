@@ -41,7 +41,7 @@ for year in years:
             month = collision.startmonth[-2:]
             month = datetime.date(int(year), int(month), 01).strftime('%B')
 
-            desc = 'Address: %s\n%s %s' % (collision.address, month, year)
+            desc = 'Address: %s<br />%s <b>%s</b>' % (collision.address, month, year)
             p = geojson.Feature(geometry=geojson.Point((float(lat), float(lng))),
                                 properties=dict(name=addr,
                                                 description=desc),
