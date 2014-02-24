@@ -51,3 +51,11 @@ if False:
 print len(collisions), "collisions"
 print len(filter(lambda x: 'MAJOR' in x.injurylevel, collisions)), "major injuries"
 print len(filter(lambda x: 'NO INJURY' in x.injurylevel, collisions)), "no injuries"
+
+addresses = set()
+for c in collisions:
+    addresses.add(c.address)
+print "unique addresses", len(addresses)
+with open('to-geocode', 'w') as f:
+    for a in addresses:
+        f.write(a + '\n')
