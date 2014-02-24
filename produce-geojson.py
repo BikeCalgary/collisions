@@ -51,5 +51,5 @@ for year in years:
             i += 1
 
     if i > 0:
-        with open('collisions-%d.geojson' % year, 'w') as f:
+        with open('processed/collisions-%d.geojson' % year, 'w') as f:
             f.write(geojson.dumps(geojson.FeatureCollection(features)))
