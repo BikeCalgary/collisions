@@ -15,38 +15,44 @@ import csv
 from xml.dom import minidom
 import requests
 import sys
+import json
+
+mapquest_key = open('seekrit', 'r').read()
 
 if False:
-    r0 = requests.get('http://geocoder.ca',
-                       params=dict(addresst='52+ST+NE', stno='1440',
-                                   city='calgary', prov='ab', geoit='XML')).text
-    print r0
-    r1 = requests.get('http://geocoder.ca',
-                      params=dict(addresst='16+AV+SE+&+36+ST+SE',# stno='1440',
-                                  city='calgary', prov='ab', geoit='XML')).text
-    print r1
+    r = requests.get('http://www.mapquestapi.com/geocoding/v1/address?key=%s&location=1440+52+ST+NE+Calgary,AB' % mapquest_key)
+
+    for r in json.loads(r.text)['results']:
+        loc = r['locations'][0]['displayLatLng']
+        lat, lng = loc['lat'], loc['lng']
+        print lat, lng
 
     sys.exit(0)
 
-def quote(s):
-    return s.strip()##.replace(' ', '+')
 
-headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:25.0) Gecko/20100101 Firefox/24.0'}
+def quote(s):
+    return s.strip().replace(' ', '+').replace('&', '&amp;')
+
 
 def get_lat_lng(line):
     if '&' in line:
-        resp = requests.get('http://geocoder.ca',
-                            params=dict(addresst=line.replace(' ', '+'),
-                                        city='calgary', prov='ab', geoit='XML')).text
+        a, b = line.split('&', 1)
+        a = a + ',Calgary,AB'
+        b = b + ',Calgary,AB'
+        r = requests.get('http://www.mapquestapi.com/geocoding/v1/address?key=%s&location=%s' % (mapquest_key, quote(a + ' &amp; ' + b)))
     else:
-        number, rest = line.split(' ', 1)
-        resp = requests.get('http://geocoder.ca',
-                            params=dict(addresst=rest.replace(' ', '+'), stno=number,
-                                        city='calgary', prov='ab', geoit='XML')).text
+        r = requests.get('http://www.mapquestapi.com/geocoding/v1/address?key=%s&location=%s' % (mapquest_key, quote(line + ',Calgary,AB')))
 
-    dom = minidom.parseString(resp)
-    lat = dom.getElementsByTagName('latt')[0].firstChild.wholeText
-    lng = dom.getElementsByTagName('longt')[0].firstChild.wholeText
+    data = json.loads(r.text)
+    if len(data['results']) != 1:
+        print "DING", data['results']
+
+    for r in data['results']:
+        if len(r['locations']) != 1:
+            print "BLAM", len(r['locations'])
+        loc = r['locations'][0]['displayLatLng']
+        lat, lng = loc['lat'], loc['lng']
+        return lat, lng
     
     return lat, lng
 
