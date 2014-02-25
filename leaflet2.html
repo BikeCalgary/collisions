@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf8">
+
+    <!-- note, using ancient leaflet because this heatmap stuff breaks with 0.7+ -->
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.css" />
+    <script src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet-src.js"></script>
+
+    <script src="heatmap/heatmap.js"></script>
+    <script src="heatmap/heatmap-leaflet.js"></script>
+    <script src="heatmap/QuadTree.js"></script>
+    <style type="text/css">
+    body{
+	margin: 0;
+	padding: 0;
+    }
+
+#map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+      </style>
+
+  </head>
+
+  <body>
+    <div id="map"></div>
+
+    <script type="text/javascript" src="heatdata.js"></script>
+<script charset="utf8" type="text/javascript">
+var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+var osmAttrib='Map data © OpenStreetMap contributors';
+var baseLayer = L.tileLayer(osmUrl,
+			    {minZoom: 10,
+			     maxZoom: 20,
+			     attribution: osmAttrib});
+
+var heatmapLayer = L.TileLayer.heatMap({
+    // radius could be absolute or relative
+    // absolute: radius in meters, relative: radius in pixels
+    //radius: { value: 50, absolute: true },
+    radius: { value: 20, absolute: false },
+    opacity: 0.8,
+    gradient: {
+	0.45: "rgb(0,0,255)",
+	0.55: "rgb(0,255,255)",
+	0.65: "rgb(0,255,0)",
+	0.95: "yellow",
+	1.0: "rgb(255,0,0)"
+    }
+});
+
+heatmapLayer.setData(the_data);
+
+var map = new L.Map('map', {
+    center: new L.LatLng(51.05239,-114.06256),
+    zoom: 11,
+    layers: [baseLayer, heatmapLayer]
+});
+</script>
+  </body>
+</html>
